@@ -1,6 +1,10 @@
+import { editCompleted } from "./app.js";
+
+// Create SingleItem Element
 export function createSingleItem(item) {
     const div = document.createElement("div");
     div.className = "single-item";
+
     div.innerHTML = `
     <input type="checkbox" ${item.completed ? "checked" : ""} />
     <p style="text-decoration: ${item.completed ? "line-through" : "none"}">
@@ -12,6 +16,11 @@ export function createSingleItem(item) {
     <button class="btn icon-btn remove-btn" type="button">
       <i class="fa-regular fa-trash-can"></i>
     </button>
-    `;
+  `;
+
+    // Add event listener for checkbox
+    const checkbox = div.querySelector('input[type="checkbox"]');
+    checkbox.addEventListener("change", () => editCompleted(item.id));
+
     return div;
 }
