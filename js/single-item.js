@@ -17,18 +17,35 @@ export function createSingleItem(item) {
       <i class="fa-regular fa-trash-can"></i>
     </button>
   `;
+    return div;
+}
+
+
+import { editCompleted } from "./app.js";
+
+function createSingleItem(item) {
+    // ....
 
     // Add event listener for checkbox
     const checkbox = div.querySelector('input[type="checkbox"]');
     checkbox.addEventListener("change", () => editCompleted(item.id));
 
-    // Add event listener for edit button
-    const editBtn = div.querySelector(".edit-btn");
-    editBtn.addEventListener("click", () => setEditId(item.id));
+    return div;
+}
 
-    // Add event listener for remove button
+import { editCompleted, removeItem } from "./app.js";
+
+function createSingleItem(item) {
+
     const removeBtn = div.querySelector(".remove-btn");
     removeBtn.addEventListener("click", () => removeItem(item.id));
 
     return div;
+}
+
+
+import { editCompleted, removeItem, setEditId } from "./app.js";
+export function createSingleItem(item) {
+    const editBtn = div.querySelector(".edit-btn");
+    editBtn.addEventListener("click", () => setEditId(item.id));
 }
