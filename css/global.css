@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 *,
 ::after,
 ::before {
@@ -7,25 +9,31 @@
 }
 
 :root {
-    --primary-500: #06b6d4;
-    --letter-spacing: 0.1rem;
+    --primary-500: #6d67e4;
+    --white: #ffffff;
+    --grey-100: #f1f5f9;
+    --grey-300: #cbd5e1;
+    --grey-400: #94a3b8;
+    --grey-600: #475569;
+    --grey-900: #0f172a;
+    --transition: all 0.2s ease-in-out;
 }
 
-
 body {
-    background: #eee;
-    font-family: Helvetica, sans-serif;
-    font-weight: 400;
-    line-height: 1.2;
-    color: #222;
+    background: linear-gradient(135deg, #a594f9, #7371fc);
+    font-family: 'Inter', sans-serif;
+    color: var(--grey-900);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .section-center {
-    margin: 0 auto;
-    margin-top: 8rem;
-    max-width: 30rem;
-    background: #fff;
-    border-radius: 0.25rem;
-    padding: 2rem;
-    position: relative;
+    width: 90vw;
+    max-width: 42rem;
+    background: var(--white);
+    border-radius: 2rem;
+    padding: 4.5rem 4rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
 }

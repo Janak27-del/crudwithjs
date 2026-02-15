@@ -1,5 +1,5 @@
 .items {
-    margin-top: 2rem;
+    margin-top: 3rem;
     display: grid;
-    row-gap: 1rem;
+    row-gap: 0.8rem;
 }
