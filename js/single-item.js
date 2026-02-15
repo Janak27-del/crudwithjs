@@ -1,15 +1,10 @@
-import { editCompleted, setEditId, removeItem } from "./app.js";
-
-// Create SingleItem Element
-export function createSingleItem(item) {
-    const div = document.createElement("div");
-    div.className = "single-item";
-
-    div.innerHTML = `
+export function createSingleItem(item, { editCompleted, setEditId, removeItem }) {
+  const div = document.createElement("div");
+  div.className = "single-item";
+  div.innerHTML = `
     <input type="checkbox" ${item.completed ? "checked" : ""} />
-    <p style="text-decoration: ${item.completed ? "line-through" : "none"}">
-      ${item.name}
-    </p>
+    <p style="text-decoration: ${item.completed ? "line-through" : "none"
+    }">${item.name}</p>
     <button class="btn icon-btn edit-btn" type="button">
       <i class="fa-regular fa-pen-to-square"></i>
     </button>
@@ -17,35 +12,18 @@ export function createSingleItem(item) {
       <i class="fa-regular fa-trash-can"></i>
     </button>
   `;
-    return div;
-}
 
+  // Checkbox
+  const checkbox = div.querySelector('input[type="checkbox"]');
+  checkbox.addEventListener("change", () => editCompleted(item.id));
 
-import { editCompleted } from "./app.js";
+  // Edit Button
+  const editBtn = div.querySelector(".edit-btn");
+  editBtn.addEventListener("click", () => setEditId(item.id));
 
-function createSingleItem(item) {
-    // ....
+  // Remove Button
+  const removeBtn = div.querySelector(".remove-btn");
+  removeBtn.addEventListener("click", () => removeItem(item.id));
 
-    // Add event listener for checkbox
-    const checkbox = div.querySelector('input[type="checkbox"]');
-    checkbox.addEventListener("change", () => editCompleted(item.id));
-
-    return div;
-}
-
-import { editCompleted, removeItem } from "./app.js";
-
-function createSingleItem(item) {
-
-    const removeBtn = div.querySelector(".remove-btn");
-    removeBtn.addEventListener("click", () => removeItem(item.id));
-
-    return div;
-}
-
-
-import { editCompleted, removeItem, setEditId } from "./app.js";
-export function createSingleItem(item) {
-    const editBtn = div.querySelector(".edit-btn");
-    editBtn.addEventListener("click", () => setEditId(item.id));
+  return div;
 }

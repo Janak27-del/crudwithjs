@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-500: #06b6d4;
+    --letter-spacing: 0.1rem;
+}
+
+
 body {
     background: #eee;
     font-family: Helvetica, sans-serif;
